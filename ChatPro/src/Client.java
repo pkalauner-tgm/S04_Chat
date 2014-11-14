@@ -25,7 +25,7 @@ public class Client {
 		try 
 		{
 			out.println(fromUser);
-			System.out.println("Client:" + fromUser);
+			//System.out.println("Client:" + fromUser);
 			
 		} catch (Exception e) {
             System.err.println("ERROR");

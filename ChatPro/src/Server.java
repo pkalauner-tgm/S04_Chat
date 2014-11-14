@@ -32,7 +32,7 @@ public class Server extends Thread{
 
 		            while ((inputLine = in.readLine()) != null) {
 		            	m.chatAdd("Partner:" + inputLine);
-		                System.out.println("Server:" + inputLine);
+		                
 		            }
 		        } catch (IOException e) {
 	                System.out.println("Exception caught when trying to listen on port " + portNumber + " or listening for a connection");
