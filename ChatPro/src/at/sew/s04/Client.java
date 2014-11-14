@@ -1,3 +1,5 @@
+package at.sew.s04;
+
 import java.io.IOException;
 import java.io.PrintStream;
 import java.net.Socket;
@@ -8,7 +10,7 @@ public class Client {
 	private int portNumber;
 	private Socket socket;
 	private PrintStream out;
-	
+
 	public Client(String host, int port) {
 		hostName = host;
 		portNumber = port;
@@ -22,18 +24,17 @@ public class Client {
 	}
 
 	public void send(String fromUser) {
-		try 
-		{
+		try {
 			out.println(fromUser);
-			//System.out.println("Client:" + fromUser);
-			
+			// System.out.println("Client:" + fromUser);
+
 		} catch (Exception e) {
-            System.err.println("ERROR");
-        } 
-		
+			System.err.println("ERROR");
+		}
+
 	}
-	public void setHost(String host)
-	{
+
+	public void setHost(String host) {
 		hostName = host;
 	}
 }
