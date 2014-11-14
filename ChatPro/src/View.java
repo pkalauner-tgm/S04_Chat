@@ -17,7 +17,7 @@ public class View extends JPanel{
 		t1 = new JTextField("");
 		t2 = new JTextArea("");
 		bhost = new JButton("verbinden");
-		host = new JTextField("127.0.0.1");
+		host = new JTextField("127.0.0.1          ");
 		t2.setEditable(false);
 		t1.setSize(100,1100);
 		JScrollPane sp = new JScrollPane(t2);   
@@ -26,6 +26,7 @@ public class View extends JPanel{
 		send = new JButton("senden");
 		p2.add(host);
 		p2.add(bhost);
+		this.t1.setText("Bitte verbinden sie sich zuerst mit ihrem Partner...");
 		this.setLayout(new GridLayout(2,2));
 		this.add(sp);
 		this.add(p2);
@@ -55,6 +56,10 @@ public class View extends JPanel{
 		return t1.getText();
 	}
 	
+	public void chatin()
+	{
+		this.t1.setText("");
+	}
 	public void update(String chat)
 	{
 		this.t2.setText("");

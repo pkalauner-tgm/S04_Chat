@@ -20,6 +20,7 @@ public class Control implements ActionListener{
 		if(e.getSource() == v.getBhost())
 		{
 			m.verbinden(v.getHost());
+			v.chatin();
 		}else
 			if(e.getSource() == v.getSend())
 			{
