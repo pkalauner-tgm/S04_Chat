@@ -11,7 +11,7 @@ public class GUI extends JFrame{
 		Container c = this.getContentPane();
 		this.setSize(new Dimension(1000,500));
 		c.add(v);
-		setTitle("Zaehler");     	
+		setTitle("Chat");     	
 	    setLocation(200,300); 		
 		setVisible(true);	
 		
