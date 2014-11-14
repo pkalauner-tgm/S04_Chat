@@ -20,7 +20,7 @@ public class View extends JPanel {
 
 	private Model m;
 	private Control c;
-	private JButton send, bhost;
+	public JButton send, bhost;
 	private JPanel p1, p2;
 	private JTextField t1, host;
 	private JTextArea t2;
@@ -66,6 +66,14 @@ public class View extends JPanel {
 
 	public String getMsg() {
 		return t1.getText();
+	}
+	
+	public String getChat() {
+		return t2.getText();
+	}
+	
+	public void setMsg(String msg) {
+		this.t1.setText(msg);
 	}
 
 	public void chatin() {

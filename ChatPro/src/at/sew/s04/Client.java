@@ -14,14 +14,15 @@ public class Client {
 	public Client(String host, int port) {
 		hostName = host;
 		portNumber = port;
-		System.out.println("Connecting...");
 		try {
 			socket = new Socket(hostName, portNumber);
 			out = new PrintStream(socket.getOutputStream());
 		} catch (IOException e) {
-			e.printStackTrace();
+			System.out.println();
+			System.exit(1);
 		}
 	}
+
 
 	public void send(String fromUser) {
 		try {
