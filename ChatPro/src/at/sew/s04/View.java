@@ -1,12 +1,14 @@
 package at.sew.s04;
 
-import java.awt.GridLayout;
+import java.awt.BorderLayout;
 
 import javax.swing.JButton;
+import javax.swing.JCheckBox;
 import javax.swing.JPanel;
 import javax.swing.JScrollPane;
 import javax.swing.JTextArea;
 import javax.swing.JTextField;
+import javax.swing.text.DefaultCaret;
 
 import at.sew.s04.message.BadWordFilter;
 import at.sew.s04.message.ChatMessage;
@@ -18,73 +20,83 @@ import at.sew.s04.message.ToUpperCase;
 public class View extends JPanel {
 	private static final long serialVersionUID = 1L;
 
-	private Model m;
 	private Control c;
-	public JButton send, bhost;
-	private JPanel p1, p2;
-	private JTextField t1, host;
-	private JTextArea t2;
-	private boolean badWordFilterOn = true; // TODO
+	public JButton bSend, bConnect;
+	private JCheckBox cbBadwordFilter;
+	private JPanel panelSend, panelConnect;
+	private JTextField ownMessage;
+	private JTextArea taChat;
+	private JScrollPane sp;
 
 	public View(Model m, Control c) {
-		p1 = new JPanel();
-		p2 = new JPanel();
-		t1 = new JTextField("");
-		t2 = new JTextArea("");
-		bhost = new JButton("verbinden");
-		host = new JTextField("127.0.0.1");
-		t2.setEditable(false);
-		t1.setSize(100, 1100);
-		JScrollPane sp = new JScrollPane(t2);
-		this.m = m;
+		panelSend = new JPanel();
+		panelConnect = new JPanel();
+		ownMessage = new JTextField("");
+		taChat = new JTextArea("");
+		bConnect = new JButton("verbinden");
+		taChat.setEditable(false);
+		ownMessage.setSize(100, 1100);
+		sp = new JScrollPane(taChat, JScrollPane.VERTICAL_SCROLLBAR_AS_NEEDED, JScrollPane.HORIZONTAL_SCROLLBAR_NEVER);
 		this.c = c;
-		send = new JButton("senden");
-		p2.add(host);
-		p2.add(bhost);
-		this.t1.setText("Bitte verbinden sie sich zuerst mit ihrem Partner...");
-		this.setLayout(new GridLayout(2, 2));
-		this.add(sp);
-		this.add(p2);
-		this.add(t1);
-		this.add(send);
-		bhost.addActionListener(c);
-		send.addActionListener(c);
-
+		this.cbBadwordFilter = new JCheckBox("Badword-Filter an");
+		bSend = new JButton("senden");
+		bSend.setEnabled(false);
+		ownMessage.setEnabled(false);
+		panelSend.add(ownMessage);
+		panelSend.add(bSend);
+		panelConnect.add(cbBadwordFilter);
+		panelConnect.add(bConnect);
+		DefaultCaret caret = (DefaultCaret) taChat.getCaret();
+		caret.setUpdatePolicy(DefaultCaret.ALWAYS_UPDATE);
+		this.ownMessage.setText("Bitte verbinden sie sich zuerst mit ihrem Partner...");
+		this.setLayout(new BorderLayout());
+		this.add(panelConnect, BorderLayout.NORTH);
+		this.add(sp, BorderLayout.CENTER);
+		this.add(panelSend, BorderLayout.SOUTH);
+		bConnect.addActionListener(this.c);
+		bSend.addActionListener(this.c);
 	}
-	
+
 	public JButton getSend() {
-		return send;
+		return bSend;
 	}
 
 	public JButton getBhost() {
-		return bhost;
+		return bConnect;
 	}
 
 	public String getMsg() {
-		return t1.getText();
+		return ownMessage.getText();
 	}
-	
+
 	public String getChat() {
-		return t2.getText();
+		return taChat.getText();
 	}
-	
+
+	public void setBadWordFilterOn(boolean on) {
+		cbBadwordFilter.setSelected(on);
+	}
+
 	public void setMsg(String msg) {
-		this.t1.setText(msg);
+		this.ownMessage.setText(msg);
 	}
 
 	public void chatin() {
-		this.t1.setText("");
+		this.ownMessage.setEnabled(true);
+		this.ownMessage.setText("");
+		this.bConnect.setEnabled(false);
+		this.bSend.setEnabled(true);
 	}
 
 	public void update(String from, String content) {
 		Message msg = new ChatMessage(content);
-		if (badWordFilterOn)
+		if (cbBadwordFilter.isSelected())
 			msg = new BadWordFilter(msg);
-		
+
 		msg = new ToUpperCase(msg);
 		msg = new DoubleLetters(msg);
 		msg = new TextToLol(msg);
 
-		this.t2.append(from + ": " + msg.getMessage() + "\n");
+		this.taChat.append(from + ": " + msg.getMessage() + "\n");
 	}
 }

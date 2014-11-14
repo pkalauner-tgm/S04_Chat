@@ -16,6 +16,7 @@ public class GUI extends JFrame {
 		c.add(v);
 		setTitle("Chat");
 		this.setLocationRelativeTo(null);
+		this.getRootPane().setDefaultButton(v.getSend());
 		setVisible(true);
 	}
 }
