@@ -24,6 +24,7 @@ public class View extends JPanel {
 	private JPanel p1, p2;
 	private JTextField t1, host;
 	private JTextArea t2;
+	private boolean badWordFilterOn = true; // TODO
 
 	public View(Model m, Control c) {
 		p1 = new JPanel();
@@ -73,11 +74,12 @@ public class View extends JPanel {
 
 	public void update(String from, String content) {
 		Message msg = new ChatMessage(content);
-		msg = new BadWordFilter(msg);
+		if (badWordFilterOn)
+			msg = new BadWordFilter(msg);
+		
 		msg = new ToUpperCase(msg);
 		msg = new DoubleLetters(msg);
 		msg = new TextToLol(msg);
-		System.out.println(msg.getMessage());
 
 		this.t2.append(from + ": " + msg.getMessage() + "\n");
 	}

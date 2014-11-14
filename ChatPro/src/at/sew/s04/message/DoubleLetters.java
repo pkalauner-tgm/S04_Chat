@@ -16,7 +16,7 @@ public class DoubleLetters extends MessageDecorator {
 		StringBuilder sb = new StringBuilder();
 
 		for (char c : msg.toCharArray())
-			sb.append(c + "" + c);
+			sb.append(c + "" + (c == ' ' ? "" : c));
 
 		return sb.toString();
 	}
