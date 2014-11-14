@@ -23,19 +23,11 @@ public class Client {
 		}
 	}
 
-
 	public void send(String fromUser) {
 		try {
 			out.println(fromUser);
-			// System.out.println("Client:" + fromUser);
-
 		} catch (Exception e) {
 			System.err.println("ERROR");
 		}
-
-	}
-
-	public void setHost(String host) {
-		hostName = host;
 	}
 }

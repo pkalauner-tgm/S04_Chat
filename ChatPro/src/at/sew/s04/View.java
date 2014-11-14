@@ -51,11 +51,7 @@ public class View extends JPanel {
 		send.addActionListener(c);
 
 	}
-
-	public String getHost() {
-		return host.getText();
-	}
-
+	
 	public JButton getSend() {
 		return send;
 	}
