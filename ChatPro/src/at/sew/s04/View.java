@@ -17,6 +17,11 @@ import at.sew.s04.message.Message;
 import at.sew.s04.message.TextToLol;
 import at.sew.s04.message.ToUpperCase;
 
+/*
+ * @author Seyyid Tiryaki
+ * @version 16.11.2014
+ */
+
 public class View extends JPanel {
 	private static final long serialVersionUID = 1L;
 
@@ -57,6 +62,9 @@ public class View extends JPanel {
 		bSend.addActionListener(this.c);
 	}
 
+	/*
+	 * @return Der Button der zum Senden der Nachricht gedrückt wird, wird zurückgegeben 
+	 */
 	public JButton getSend() {
 		return bSend;
 	}
@@ -64,15 +72,24 @@ public class View extends JPanel {
 	public JButton getBhost() {
 		return bConnect;
 	}
-
+	
+	/*
+	 * @return Die Nachricht die geschickt werden soll, wird zurückgegeben 
+	 */
 	public String getMsg() {
 		return ownMessage.getText();
 	}
 
+	/*
+	 * @return Der gesamte Chatverlauf wird zurückgegeben
+	 */
 	public String getChat() {
 		return taChat.getText();
 	}
 
+	/*
+	 * @param on Stellt den BadWordFilter an oder aus
+	 */
 	public void setBadWordFilterOn(boolean on) {
 		cbBadwordFilter.setSelected(on);
 	}
