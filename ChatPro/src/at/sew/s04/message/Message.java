@@ -8,7 +8,7 @@ package at.sew.s04.message;
  *
  */
 public abstract class Message {
-	String content;
+	protected String content;
 
 	/**
 	 * Liefert die Nachricht zurueck

@@ -4,6 +4,12 @@ import java.io.IOException;
 import java.io.PrintStream;
 import java.net.Socket;
 
+/**
+ * Verbindet sich zum Partner
+ * 
+ * @author Seyyid Tiryaki
+ * @version 16.11.2014
+ */
 public class Client {
 
 	private String hostName;
@@ -11,6 +17,14 @@ public class Client {
 	private Socket socket;
 	private PrintStream out;
 
+	/**
+	 * Verbindet sich zum Partner
+	 * 
+	 * @param host
+	 *            IP des Partners
+	 * @param port
+	 *            Port des Partners
+	 */
 	public Client(String host, int port) {
 		hostName = host;
 		portNumber = port;
@@ -23,6 +37,12 @@ public class Client {
 		}
 	}
 
+	/**
+	 * sendet eine Nachricht
+	 * 
+	 * @param fromUser
+	 *            Sender
+	 */
 	public void send(String fromUser) {
 		try {
 			out.println(fromUser);

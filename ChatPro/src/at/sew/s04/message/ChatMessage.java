@@ -8,6 +8,12 @@ package at.sew.s04.message;
  *
  */
 public class ChatMessage extends Message {
+	/**
+	 * Initialisiert ein ChatMessage Objekt
+	 * 
+	 * @param msg
+	 *            Nachrichteninhalt
+	 */
 	public ChatMessage(String msg) {
 		content = msg;
 	}

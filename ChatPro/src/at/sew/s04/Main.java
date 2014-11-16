@@ -1,6 +1,19 @@
 package at.sew.s04;
 
+/**
+ * Hier wird das Programm gestartet
+ * 
+ * @author Paul Kalauner 4AHIT
+ * @version 20141114.1
+ *
+ */
 public class Main {
+	/**
+	 * Eintrittspunkt des Programmes
+	 * 
+	 * @param args
+	 *            [IP] [Port]
+	 */
 	public static void main(String[] args) {
 		if (!checkArgs(args))
 			System.exit(1);
@@ -9,7 +22,9 @@ public class Main {
 	/**
 	 * Ueberprueft die Konsolenargumente<br>
 	 * Hinweis: Diese Methode ist public um sie zu testen.
-	 * @param args Argumente
+	 * 
+	 * @param args
+	 *            Argumente
 	 * @return true wenn gueltig
 	 */
 	public static boolean checkArgs(String[] args) {

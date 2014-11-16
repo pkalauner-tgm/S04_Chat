@@ -7,18 +7,22 @@ import java.io.PrintWriter;
 import java.net.ServerSocket;
 import java.net.Socket;
 
-/*
+/**
+ * Diese Klasse erzeugt einen Thread der auf die Nachricht des Partners wartet.
+ * 
  * @author Seyyid Tiryaki
  * @version 16.11.2014
- * @description Diese Klasse erzeugt einen Thread der auf die Nachricht des Partners wartet.
  */
 public class Server extends Thread {
 
 	private int portNumber;
 	private Model m;
 
-	/*
-	 * @param port Der Port an dem Der Thread auf die Nachricht wartet.
+	/**
+	 * @param port
+	 *            Der Port an dem Der Thread auf die Nachricht wartet.
+	 * @param m
+	 *            Model
 	 */
 	public Server(int port, Model m) {
 		portNumber = port;

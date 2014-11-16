@@ -1,8 +1,22 @@
 package at.sew.s04.message;
 
+/**
+ * DoubleLetters-Decorator<br>
+ * Verdoppelt jeden Buchstaben
+ * 
+ * @author Paul Kalauner 4AHIT
+ * @version 20141114.1
+ *
+ */
 public class DoubleLetters extends MessageDecorator {
-	Message msg;
+	private Message msg;
 
+	/**
+	 * Initialisiert DoubleLetters mit Angabe des Message Objektes
+	 * 
+	 * @param msg
+	 *            das Message Objekt
+	 */
 	public DoubleLetters(Message msg) {
 		this.msg = msg;
 	}
@@ -12,6 +26,13 @@ public class DoubleLetters extends MessageDecorator {
 		return doubleLetters(msg.getMessage());
 	}
 
+	/**
+	 * verdoppelt jeden Buchstaben
+	 * 
+	 * @param msg
+	 *            die urspruengliche Nachricht
+	 * @return Nachricht mit verdoppelten Buchstaben
+	 */
 	private static String doubleLetters(String msg) {
 		StringBuilder sb = new StringBuilder();
 
