@@ -20,6 +20,7 @@ import at.sew.s04.message.ToUpperCase;
 /**
  * @author Seyyid Tiryaki
  * @version 16.11.2014
+ * 
  */
 public class View extends JPanel {
 	private static final long serialVersionUID = 1L;
