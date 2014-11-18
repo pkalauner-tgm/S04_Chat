@@ -36,9 +36,9 @@ public class Server extends Thread {
 			while ((inputLine = in.readLine()) != null) {
 				m.chatAdd("Partner", inputLine);
 			}
-		} catch (IOException e) {
 			System.out.println("Ihr Partner hat die Verbindung getrennt!");
 			System.exit(1);
+		} catch (IOException e) {
 		}
 	}
 
