@@ -9,6 +9,9 @@ package at.sew.s04.message;
  *
  */
 public class BadWordFilter extends MessageDecorator {
+	/**
+	 * kann erweitert werden
+	 */
 	private static final String[] badwords = { "scheiße", "fuck", "arschloch" };
 	private Message msg;
 

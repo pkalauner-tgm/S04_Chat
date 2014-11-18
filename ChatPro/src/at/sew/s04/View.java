@@ -42,8 +42,8 @@ public class View extends JPanel {
 	public View(Model m, Control c) {
 		panelSend = new JPanel();
 		panelConnect = new JPanel();
-		ownMessage = new JTextField("");
-		taChat = new JTextArea("");
+		ownMessage = new JTextField(40);
+		taChat = new JTextArea();
 		bConnect = new JButton("verbinden");
 		taChat.setEditable(false);
 		ownMessage.setSize(100, 1100);

@@ -32,7 +32,10 @@ public class Control implements ActionListener {
 			m.connect();
 			v.chatin();
 		} else if (e.getSource() == v.getBSend()) {
-			m.send(v.getMsg());
+			if (!v.getMsg().isEmpty()) {
+				m.send(v.getMsg());
+				v.setMsg("");
+			}
 		}
 	}
 
