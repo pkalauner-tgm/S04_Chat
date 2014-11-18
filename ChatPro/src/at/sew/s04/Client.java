@@ -32,7 +32,7 @@ public class Client {
 			socket = new Socket(hostName, portNumber);
 			out = new PrintStream(socket.getOutputStream());
 		} catch (IOException e) {
-			System.out.println();
+			System.out.println("Keine Verbindung zum Partner!");
 			System.exit(1);
 		}
 	}
@@ -44,10 +44,6 @@ public class Client {
 	 *            Sender
 	 */
 	public void send(String fromUser) {
-		try {
-			out.println(fromUser);
-		} catch (Exception e) {
-			System.err.println("ERROR");
-		}
+		out.println(fromUser);
 	}
 }
