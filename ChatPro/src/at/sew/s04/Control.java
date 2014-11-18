@@ -30,7 +30,7 @@ public class Control implements ActionListener {
 	public void actionPerformed(ActionEvent e) {
 		if (e.getSource() == v.getBConnect()) {
 			m.connect();
-			v.chatin();
+			v.startChatting();
 		} else if (e.getSource() == v.getBSend()) {
 			if (!v.getMsg().isEmpty()) {
 				m.send(v.getMsg());

@@ -120,7 +120,7 @@ public class View extends JPanel {
 	 * wird nach dem Verbinden aufgerufen<br>
 	 * Alle Textfelder werden fuer das Chatten zurueckgesetzt
 	 */
-	public void chatin() {
+	public void startChatting() {
 		this.ownMessage.setEnabled(true);
 		this.ownMessage.setText("");
 		this.bConnect.setEnabled(false);
