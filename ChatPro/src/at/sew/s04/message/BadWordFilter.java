@@ -12,7 +12,7 @@ public class BadWordFilter extends MessageDecorator {
 	/**
 	 * kann erweitert werden
 	 */
-	private static final String[] badwords = { "Medientechnicker", "fuck", "arschloch","asshole","nigga" };
+	private static final String[] badwords = { "fuck", "arschloch", "asshole" };
 	private Message msg;
 
 	/**

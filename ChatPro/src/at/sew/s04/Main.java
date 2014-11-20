@@ -1,5 +1,8 @@
 package at.sew.s04;
 
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
+
 /**
  * Hier wird das Programm gestartet
  * 
@@ -8,6 +11,8 @@ package at.sew.s04;
  *
  */
 public class Main {
+	private static final Logger LOG = LogManager.getLogger(Main.class);
+	
 	/**
 	 * Eintrittspunkt des Programmes
 	 * 
@@ -29,7 +34,7 @@ public class Main {
 	 */
 	public static boolean checkArgs(String[] args) {
 		if (args.length < 2) {
-			System.out.println("Geben Sie die IP und den Port des Chat Partners an:\njava -jar Chat.jar <IP> <Port>");
+			LOG.info("Geben Sie die IP und den Port des Chat Partners an:\njava -jar Chat.jar <IP> <Port>");
 			return false;
 		}
 		try {
@@ -37,7 +42,7 @@ public class Main {
 			new Control(args[0], port);
 			return true;
 		} catch (NumberFormatException nfe) {
-			System.out.println("Ungültiger Port");
+			LOG.info("Ungueltiger Port");
 			return false;
 		}
 	}

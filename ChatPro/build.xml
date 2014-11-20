@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<project basedir="." default="compile" name="Chat">
+	<property environment="env" />
+	<property name="src.dir" value="src" />
+	<property name="build.dir" value="bin" />
+	<property name="lib.dir" value="libs" />
+	<property name="junit.output.dir" value="junit" />
+	<property name="debuglevel" value="source,lines,vars" />
+	<path id="JUnit4.libraryclasspath">
+		<pathelement location="${lib.dir}/junit.jar" />
+		<pathelement location="${lib.dir}/org.hamcrest.core_1.3.0.v201303031735.jar" />
+	</path>
+	<path id="project.classpath">
+		<pathelement location="${lib.dir}/log4j-api-2.1.jar" />
+		<pathelement location="${lib.dir}/log4j-core-2.1.jar" />
+		<path refid="JUnit4.libraryclasspath" />
+	</path>
+	<target name="clean">
+		<delete dir="bin" />
+	</target>
+	<target name="compile">
+		<mkdir dir="${build.dir}" />
+		<javac srcdir="${src.dir}" destdir="${build.dir}" classpathref="project.classpath" debug="true" deprecation="true" includeantruntime="false" />
+	</target>
+</project>

@@ -24,7 +24,7 @@ public class TestMessageFilters {
 	 */
 	@Test
 	public void testBadwordFilter() {
-		Message msg = new ChatMessage("aaa scheiße bbb");
+		Message msg = new ChatMessage("aaa scheisse bbb");
 		msg = new BadWordFilter(msg);
 		assertEquals("aaa ** bbb", msg.getMessage());
 	}

@@ -6,6 +6,9 @@ import java.io.InputStreamReader;
 import java.net.ServerSocket;
 import java.net.Socket;
 
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
+
 /**
  * Diese Klasse erzeugt einen Thread der auf die Nachricht des Partners wartet.
  * 
@@ -13,7 +16,7 @@ import java.net.Socket;
  * @version 16.11.2014
  */
 public class Server extends Thread {
-
+	private static final Logger LOG = LogManager.getLogger(Server.class);
 	private int portNumber;
 	private Model m;
 
@@ -36,7 +39,7 @@ public class Server extends Thread {
 			while ((inputLine = in.readLine()) != null) {
 				m.chatAdd("Partner", inputLine);
 			}
-			System.out.println("Ihr Partner hat die Verbindung getrennt!");
+			LOG.info("Ihr Partner hat die Verbindung getrennt!");
 			System.exit(1);
 		} catch (IOException e) {
 		}
